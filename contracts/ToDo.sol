@@ -25,4 +25,8 @@ contract ToDo {
         return lists[_taskId] = Lists(_taskId, _title , _descriptions, false);
     }
 
+    function getTodoList() public view returns (Lists[] memory) {
+        return lists;
+    }
+
 }
