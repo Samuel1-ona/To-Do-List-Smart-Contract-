@@ -5,7 +5,7 @@ async function main() {
 
   await toDo.waitForDeployment();
 
-  console.log(` SetterGetter contract   deployed to ${toDo.target}`);
+  console.log(` ToDo contract   deployed to ${toDo.target}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -14,4 +14,3 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-
