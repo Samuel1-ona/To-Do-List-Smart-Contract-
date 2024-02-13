@@ -29,4 +29,12 @@ contract ToDo {
         return lists;
     }
 
+    function deleteCompletedTask(uint256 _taskId) external{
+        require(_taskId < lists.length , "Task Id is out of reach");
+
+        lists[_taskId] = lists[lists.length- 1];
+        lists.pop();
+
+    }
+
 }
