@@ -21,7 +21,7 @@ contract ToDo {
     }
     function updateTask(uint256 _taskId , string memory _title , string memory _descriptions)external  returns (Lists memory){
 
-        require(_taskId < lists.length , "NO UPDATE MADE" );
+        require(_taskId < lists.length , "List length has exceed the maximum length" );
         return lists[_taskId] = Lists(_taskId, _title , _descriptions, false);
     }
 

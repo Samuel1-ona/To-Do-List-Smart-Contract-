@@ -28,7 +28,14 @@ describe("ToDo", function () {
       expect(tasks[0].descriptions).to.equal("Description 1");
       expect(tasks[0].isDone).to.be.false;
     });
-
   });
-  describe("")
+  describe("update ToDo list", function () {
+    it("should show ToDo list to be updated", async function () {
+      const { todo } = await loadFixture(deployToDo);
+      await todo.updateTask(1, "Updated Task", "Updated Description");
+      const tasks = await todo.getTodoList();
+      expect(tasks[1].title).to.equal("Updated Task");
+      expect(tasks[1].descriptions).to.equal("Updated Description");
+    });
+  });
 });
