@@ -32,10 +32,14 @@ describe("ToDo", function () {
   describe("update ToDo list", function () {
     it("should show ToDo list to be updated", async function () {
       const { todo } = await loadFixture(deployToDo);
-      await todo.updateTask(1, "Updated Task", "Updated Description");
+      await todo.addTodoList("Task 1", "Description 1");
+
+      await todo.updateTask(0, "Updated Task", "Updated Description");
       const tasks = await todo.getTodoList();
-      expect(tasks[1].title).to.equal("Updated Task");
-      expect(tasks[1].descriptions).to.equal("Updated Description");
+      expect(tasks[0].title).to.equal("Updated Task");
+      expect(tasks[0].descriptions).to.equal("Updated Description");
     });
   });
+
+  
 });
