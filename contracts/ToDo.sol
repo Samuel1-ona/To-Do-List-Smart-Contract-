@@ -11,5 +11,13 @@ contract ToDo {
         bool isDone;
     }
 
-    
+      Lists[]  lists;
+
+       function addTodoList(string memory _title, string memory _descriptions) external {
+        Lists memory newList = Lists(lists.length, _title, _descriptions, false);
+        lists.push(newList);
+        taskId++;
+        
+    }
+
 }
