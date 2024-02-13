@@ -40,6 +40,14 @@ describe("ToDo", function () {
       expect(tasks[0].descriptions).to.equal("Updated Description");
     });
   });
+  describe("Delete ToDo list", function () {
+    it("should show ToDo list to be deleted", async function () {
+      const { todo } = await loadFixture(deployToDo);
+      await todo.addTodoList("Task 1", "Description 1");
 
-  
+      await todo.deleteCompletedTask(0);
+      const tasks = await todo.getTodoList();
+      expect(tasks.length).to.equal(0);
+    });
+  });
 });
